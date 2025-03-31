@@ -470,7 +470,25 @@ dc: 68 02 00 11 5c      ; push $0x5c110002 (1 byte 68, followed by 4 bytes 02 00
 ```
 ----------------------------------------------------------------------
 
-In x86 (Little Endian), multi-byte data is stored in reverse order.
+### 1. Convert 0x100007f to parse:
+The value 0x100007f is a memory address with a 32-bit configuration system (IPv4) in hexadecimal. You can split this address into four bytes (each byte corresponds to a part of the IP address). The address 0x100007f can be split as follows:
+```
+0x100007f in hex = 0x0000007f in parse.
+```
+2. Convert the bytes of the component string:
+The IP address is represented by four bytes.
+```
+0x0000007f is split into the following bytes:
+```
+Byte 1: 0x7f (127)
+
+Byte 2: 0x00 (0)
+
+Byte 3: 0x00 (0)
+
+Byte 4: 0x01 (1)
+
+###In x86 (Little Endian), multi-byte data is stored in reverse order.
 
 When interpreted as a struct sockaddr, this corresponds to:
 
